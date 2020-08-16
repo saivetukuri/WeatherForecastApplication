@@ -1,0 +1,274 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+	
+		
+$( document ).ready(function() {
+	var start = new Date().getTime();
+	var units='<%=session.getAttribute("units")%>';
+	if(units==null||units=="null"){
+		  units="metric";
+		  sessionStorage.setItem('units',units);
+	}
+	if(sessionStorage.getItem("latitude")==null){
+		 sessionStorage.setItem('latitude',17.3850);
+		  sessionStorage.setItem('longitude',78.4867);
+	}
+	if(sessionStorage.getItem("longitude")==null){
+		 sessionStorage.setItem('latitude',17.3850);
+		  sessionStorage.setItem('longitude',78.4867);
+	}
+	var alert='<b>Alert : </b>';
+	var cyclone='';
+	var condition='';
+	var temp='';
+	var airalerts='';
+	var i;
+	  var unixnow=Math.floor(Date.now() / 1000);
+	  var month = new Array();
+	  month[0] = "January";
+	  month[1] = "February";
+	  month[2] = "March";
+	  month[3] = "April";
+	  month[4] = "May";
+	  month[5] = "June";
+	  month[6] = "July";
+	  month[7] = "August";
+	  month[8] = "September";
+	  month[9] = "October";
+	  month[10] = "November";
+	  month[11] = "December";
+	  
+	var descriptionalerts=["thunderstorm with heavy rain","heavy thunderstorm",
+		"ragged thunderstorm","thunderstorm with heavy drizzle","heavy intensity drizzle",
+		"heavy intensity drizzle rain","shower rain and drizzle","heavy shower rain and drizzle",
+		"heavy intensity rain","very heavy rain","extreme rain","freezing rain","heavy intensity shower rain",
+		"ragged shower rain","Heavy snow","Sleet","Light shower sleet","Shower sleet","Rain and snow","Heavy shower snow",
+		"volcanic ash","tornado","squalls"];
+    $.ajax({
+    	url:'https://api.openweathermap.org/data/2.5/onecall/timemachine?lat='+sessionStorage.getItem("latitude")+"&lon="+sessionStorage.getItem("longitude")+"&dt="+Math.floor(Date.now() / 1000)+"&appid=32a5443257de297a3b5b97d1ea462ed8&units="+units,
+    	type:"GET",
+    	datatype:"jsonp",
+    	success: function(data){
+    		//console.log(JSON.stringify(data));
+    		//console.log("hi");
+    		console.log("current");
+    		sessionStorage.setItem('currentnow',JSON.stringify(data));
+    		sessionStorage.setItem('units','${units}');
+    		 //console.log(sessionStorage.getItem('currentnow'));
+    		    //Current(sessionStorage.getItem('currentnow'),sessionStorage.getItem('airquality'));
+    		    var date=new Date(JSON.parse(sessionStorage.getItem('currentnow')).current.dt*1000);
+    		    var hours = "0"+date.getHours();
+    		    //Minutes part from the timestamp
+    		    var minutes = "0" + date.getMinutes();
+    		    //Seconds part from the timestamp
+    		    var seconds = "0" + date.getSeconds();
+
+    		    //Will display time in 10:30:23 format
+    		    var formattedTime = hours.substr(-2) + ':' + minutes.substr(-2);
+    		    if(hours.substr(-2)>=12){
+    		    	formattedTime+=" pm";
+    		    }
+    		    else{
+    		    	formattedTime+=" am";
+    		    }
+    		   // console.log(formattedTime);
+    		    document.getElementById('timenow').innerHTML=formattedTime;
+    		    document.getElementById("iconnow").src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/'+JSON.parse(sessionStorage.getItem('currentnow')).current.weather[0].icon+'.png'
+    		    //console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.weather[0].icon);
+    		    
+    		    console.log(JSON.parse(sessionStorage.getItem('currentnow')));
+    		    if(${units=='metric'}){
+    		    document.getElementById('text2').innerHTML=Math.round(JSON.parse(sessionStorage.getItem('currentnow')).current.temp)+'<sup>°</sup><b style="font-size:15px;">C</b>';
+    		    
+    		  
+    		    
+    		    
+    		    }
+    		    else if(${units=='imperial'}){
+    		    	document.getElementById('text2').innerHTML=Math.round(JSON.parse(sessionStorage.getItem('currentnow')).current.temp)+'<sup>°</sup><b style="font-size:15px;">F</b>';
+    		    	
+        	
+    		    }
+    		    else if(${units==''}){
+    		    	document.getElementById('text2').innerHTML=Math.round(JSON.parse(sessionStorage.getItem('currentnow')).current.temp)+'<sup> </sup><b style="font-size:30px;">K</b>';
+        		    
+        		    
+    		    }
+
+    		    //console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.feels_like);
+    		    document.getElementById('feels_like').innerHTML=Math.round(JSON.parse(sessionStorage.getItem('currentnow')).current.feels_like);
+    		    //console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.weather[0].description);
+    		    document.getElementById('desc').innerHTML='<b>'+JSON.parse(sessionStorage.getItem('currentnow')).current.weather[0].description+'</b>';
+    		    //console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.humidity);
+    		    //console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed);
+    		    if(${units=='metric' || units==''}){
+    		    document.getElementById('details').innerHTML='Humidity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JSON.parse(sessionStorage.getItem('currentnow')).current.humidity+
+    		    '%<hr>'+'Wind Speed:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed+"m/s<hr>";
+    		  
+    		    }
+    		    else if(${units=='imperial'}){
+    		    	document.getElementById('details').innerHTML='Humidity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JSON.parse(sessionStorage.getItem('currentnow')).current.humidity+
+    		    	'%<hr>'+'Wind Speed:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed+"km/hr<hr>";
+    		    	
+    		    }
+    		    if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>=0 && JSON.parse(sessionStorage.getItem('airquality')).data.aqi<=50){
+    		    document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="display:inline; color:#009966;">Good</p>';
+    		    document.getElementById('airdesc').innerHTML='Air Quality:Good<br>'+
+    		    '<small>Air quality is considered satisfactory, and air pollution poses little or no risk.</small>';
+    		    }
+    		    else if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>=51 && JSON.parse(sessionStorage.getItem('airquality')).data.aqi<=100){
+    		    	document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="display:inline;color:#ffc300;">Moderate</p>';
+    		    	 document.getElementById('airdesc').innerHTML='Moderate<br>'+
+    	    		    '<small>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.</small>';
+    		    }
+    		    else if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>=101 && JSON.parse(sessionStorage.getItem('airquality')).data.aqi<=150){
+    		    	document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="max-width: 150px; display:inline;"><p style="color:#ff9933;">Unhealthy for Sensitive Groups</p></div>';
+    		    	 document.getElementById('airdesc').innerHTML='Unhealthy for Sensitive Groups<br>'+
+    	    		    '<small>Members of sensitive groups may experience health effects. The general public is not likely to be affected.</small>';
+    		   //airalerts+=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear()+":Air Quality is Unhealthy for Sensitive Groups with (AQI:"+JSON.parse(sessionStorage.getItem('airquality')).data.aqi+"); ";
+    		    }
+    		    else if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>=151 && JSON.parse(sessionStorage.getItem('airquality')).data.aqi<=200){
+    		    	document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="display:inline;color:#cc0033;">Unhealthy</p>';
+    		    	 document.getElementById('airdesc').innerHTML='Unhealthy<br>'+
+    	    		    '<small>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects.</small>';
+    		    	 //airalerts+=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear()+":Air Quality is Unhealthy (AQI:"+JSON.parse(sessionStorage.getItem('airquality')).data.aqi+"); ";
+    		    }
+    		    else if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>=201 && JSON.parse(sessionStorage.getItem('airquality')).data.aqi<=300){
+    		    	document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="display:inline;color:#660099;">Very Unhealthy</p>';
+    		    	 document.getElementById('airdesc').innerHTML='Very Unhealthy<br>'+
+    	    		    '<small>Health warnings of emergency conditions. The entire population is more likely to be affected.</small>';
+    		    	// airalerts+=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear()+":Air Quality is Very Unhealthy  (AQI:"+JSON.parse(sessionStorage.getItem('airquality')).data.aqi+") ;";
+    		    }
+    		    else if(JSON.parse(sessionStorage.getItem('airquality')).data.aqi>300){
+    		    	document.getElementById('details').innerHTML+='Air Quality:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="display:inline;color:#7e0023;">Hazardous</p>';
+    		    	 document.getElementById('airdesc').innerHTML='Hazardous<br>'+
+    	    		    '<small>Health alert: everyone may experience more serious health effects</small>';
+    		    	// airalerts+=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear()+":Air Quality is Unhealthy for Sensitive Groups  (AQI:"+JSON.parse(sessionStorage.getItem('airquality')).data.aqi+") ;";
+    		    }
+    		   // console.log(airalerts);
+    		    document.getElementById('aqivalue').innerHTML+='AQI:'+JSON.parse(sessionStorage.getItem("airquality")).data.aqi+'<br>';
+    		    var end = new Date().getTime();
+    		    console.log("time:"+(end - start));
+    		    $.ajax({
+    		    	url:'https://api.openweathermap.org/data/2.5/onecall?lat='+sessionStorage.getItem("latitude")+'&lon='+sessionStorage.getItem("longitude")+'&appid=32a5443257de297a3b5b97d1ea462ed8&units='+units,
+    		    	type:"GET",
+    		    	datatype:"jsonp",
+    		    	success: function(data1){
+    		    		//console.log(data);
+    		    		console.log("forecast");
+    		    		console.log(units);
+    		    		sessionStorage.setItem('forecast',JSON.stringify(data1));
+    		    		sessionStorage.setItem('forecast8days',JSON.stringify(data1.daily));
+    		    		sessionStorage.setItem('forecasthourly',JSON.stringify(data1.hourly));
+    		    		console.log(JSON.parse(sessionStorage.getItem('forecast8days')));
+    		    		//console.log(new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[0].dt*1000));
+    		    		var date=new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[0].dt*1000);
+    		    		document.getElementById('todaydate').innerHTML=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear();
+    		    		document.getElementById("icontoday").src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/'+JSON.parse(sessionStorage.getItem('forecast8days'))[0].weather[0].icon+'.png'
+    		    		//console.log(JSON.parse(sessionStorage.getItem('forecasthourly')));
+    		    		if(${units=='metric'}){
+    		    			document.getElementById("todaytemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.eve)+'<sup>°</sup><b style="font-size:15px;">C</b>';
+    		    			
+    		    		    }
+    		    		    else if(${units=='imperial'}){
+    		    		    	document.getElementById("todaytemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.eve)+'<sup>°</sup><b style="font-size:15px;">F</b>';
+    		    		    	//console.log(JSON.parse(sessionStorage.getItem('forecast8days'))[0].weather[0].description in descriptionalerts);
+    		    		
+    		    		    }
+    		    		    else if(${units==''}){
+    		    		    	document.getElementById("todaytemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.eve)+'<sup></sup><b style="font-size:30px;">K</b>';
+    		    		    	//console.log(JSON.parse(sessionStorage.getItem('forecast8days'))[0].weather[0].description in descriptionalerts);
+    		    		    }
+
+    		    		document.getElementById("todayfeel_like").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[0].feels_like.eve);
+    		    		document.getElementById("todaydesc").innerHTML=JSON.parse(sessionStorage.getItem('forecast8days'))[0].weather[0].description;
+    		    		
+    		    		
+    		    		var date=new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[1].dt*1000);
+    		    		document.getElementById('tmwdate').innerHTML=month[date.getMonth()]+" "+("0"+date.getDate()).substr(-2)+" "+date.getUTCFullYear();
+    		    		document.getElementById("icontmw").src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/'+JSON.parse(sessionStorage.getItem('forecast8days'))[1].weather[0].icon+'.png'
+    		    		//console.log(JSON.parse(sessionStorage.getItem('forecasthourly')));
+    		    		if(${units=='metric'}){
+    		    			document.getElementById("tmwtemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.eve)+'<sup>°</sup><b style="font-size:15px;">C</b>';
+    		    		    }
+    		    		    else if(${units=='imperial'}){
+    		    		    	document.getElementById("tmwtemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.eve)+'<sup>°</sup><b style="font-size:15px;">F</b>';
+    		    		    }
+    		    		    else if(${units==''}){
+    		    		    	document.getElementById("tmwtemp").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.eve)+'<sup></sup><b style="font-size:30px;">K</b>';
+    		    		    }
+
+    		    		document.getElementById("tmwfeel_like").innerHTML=Math.round(JSON.parse(sessionStorage.getItem('forecast8days'))[1].feels_like.eve);
+    		    		document.getElementById("tmwdesc").innerHTML=JSON.parse(sessionStorage.getItem('forecast8days'))[1].weather[0].description;
+    		    		var end = new Date().getTime();
+    		 		    console.log("forecasttime:"+(end - start));
+    		 		    
+    		 		    
+//Alerts-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    		 		   <%@ include file="alertsretrieve.jsp" %>
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    		 		    
+    		 		   for(i=5;i>=0;i--){ 
+    		 			  
+    		 				$.ajax({
+    		 					
+    		 						  
+    		 						ajaxI:i,
+    		 				    	url:'https://api.openweathermap.org/data/2.5/onecall/timemachine?lat='+sessionStorage.getItem("latitude")+"&lon="+sessionStorage.getItem("longitude")+"&dt="+(unixnow-(i*86400))+"&appid=32a5443257de297a3b5b97d1ea462ed8&units="+units,
+    		 				    	
+    		 				    			type:"GET",
+    		 				    	datatype:"jsonp",
+    		 				    	success: function(data){
+    		 				    		i=this.ajaxI;
+    		 				    		console.log("history");
+    		 				    		console.log(unixnow-(i*86400));
+    		 				    		sessionStorage.setItem('history'+i,JSON.stringify(data));
+    		 				    		console.log(i);
+    		 				    		console.log(new Date(JSON.parse(sessionStorage.getItem('history'+i)).current.dt*1000));
+    		 				    		console.log(JSON.parse(sessionStorage.getItem('history'+i)));
+    		 				    		var end = new Date().getTime();
+    		 				 		    console.log("historytime:"+(end - start));
+    		 				 		  
+    		 				    	}
+    		 					  
+    		 				    });
+    		 				  }
+    		    		 
+    		    	}
+    		    
+    		    });
+    		    <%@ include file="enablelink.jsp" %>
+    		    }
+   
+    });
+    
+    $.ajax({
+    	url:'https://api.waqi.info/feed/geo:'+sessionStorage.getItem("latitude")+";"+sessionStorage.getItem("longitude")+"/?token=1a7e1e347fbf8336f24932c64f00754b8cbc4520",
+    	type:"GET",
+    	datatype:"jsonp",
+    	success: function(data){
+    		//console.log(data);
+    		console.log("air");
+    		sessionStorage.setItem('airquality',JSON.stringify(data));
+    		var end = new Date().getTime();
+ 		    console.log("airtime:"+(end - start));
+    		 
+    	}
+    });
+   
+});
+
+</script>
+
+</body>
+</html>

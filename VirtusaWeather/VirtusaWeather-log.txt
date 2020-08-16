@@ -1,0 +1,689 @@
+INFO  15 Aug 2020 - 15:07:42.006 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 15:07:42.014 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 15:07:42.014 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 15:07:42.066 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO  15 Aug 2020 - 15:07:42.067 [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO  15 Aug 2020 - 15:07:42.871 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 15:07:42.918 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 15:07:43.818 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 15:07:43.830 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 15:07:43.831 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 15:07:44.121 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 15:07:44.126 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 15:07:44.126 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2059 ms
+INFO  15 Aug 2020 - 15:07:44.528 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:07:44.823 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+INFO  15 Aug 2020 - 15:07:45.579 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+INFO  15 Aug 2020 - 15:07:45.677 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 15:07:45.758 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 15:07:45.768 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 4.504 seconds (JVM running for 6.219)
+INFO  15 Aug 2020 - 15:07:54.122 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:07:54.123 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:07:54.130 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+DEBUG 15 Aug 2020 - 15:07:54.152 [http-nio-9010-exec-1] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:07:54.152 [http-nio-9010-exec-1] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:08:16.384 [http-nio-9010-exec-9] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:08:16.385 [http-nio-9010-exec-9] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:08:16.385 [http-nio-9010-exec-9] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:08:18.937 [http-nio-9010-exec-9] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:08:18.938 [http-nio-9010-exec-9] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+INFO  15 Aug 2020 - 15:10:08.955 [Thread-167] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:10:08.955 [Thread-167] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+INFO  15 Aug 2020 - 15:10:15.634 [Thread-167] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+INFO  15 Aug 2020 - 15:10:15.863 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 15:10:15.863 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 15:10:15.863 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 15:10:16.044 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 15:10:16.048 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 15:10:16.131 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 15:10:16.132 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 15:10:16.132 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 15:10:16.190 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 15:10:16.191 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 15:10:16.192 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 327 ms
+INFO  15 Aug 2020 - 15:10:16.272 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:10:16.317 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+INFO  15 Aug 2020 - 15:10:16.329 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+INFO  15 Aug 2020 - 15:10:16.362 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 15:10:16.373 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 15:10:16.377 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 0.54 seconds (JVM running for 156.827)
+INFO  15 Aug 2020 - 15:10:16.378 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+INFO  15 Aug 2020 - 15:10:50.425 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:10:50.425 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:10:50.428 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+DEBUG 15 Aug 2020 - 15:10:50.432 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:10:50.432 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:10:50.432 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:10:52.326 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:10:52.326 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+INFO  15 Aug 2020 - 15:11:42.558 [Thread-170] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:11:42.559 [Thread-170] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+INFO  15 Aug 2020 - 15:11:46.274 [Thread-170] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+INFO  15 Aug 2020 - 15:11:46.473 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 15:11:46.473 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 15:11:46.474 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 15:11:46.647 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 15:11:46.651 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 15:11:46.746 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 15:11:46.747 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 15:11:46.747 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 15:11:46.803 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 15:11:46.805 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 15:11:46.805 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 329 ms
+INFO  15 Aug 2020 - 15:11:46.878 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:11:46.918 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+INFO  15 Aug 2020 - 15:11:46.928 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+INFO  15 Aug 2020 - 15:11:46.959 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 15:11:46.969 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 15:11:46.972 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 0.523 seconds (JVM running for 247.423)
+INFO  15 Aug 2020 - 15:11:46.974 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+INFO  15 Aug 2020 - 15:11:54.454 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:11:54.455 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:11:54.459 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+DEBUG 15 Aug 2020 - 15:11:54.462 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:11:54.462 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:11:54.462 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:11:56.400 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:11:56.400 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+INFO  15 Aug 2020 - 15:12:40.742 [Thread-336] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:12:40.743 [Thread-336] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+INFO  15 Aug 2020 - 15:12:46.811 [Thread-336] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+INFO  15 Aug 2020 - 15:12:47.012 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 15:12:47.012 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 15:12:47.013 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 15:12:47.179 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 15:12:47.183 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 15:12:47.258 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 15:12:47.258 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 15:12:47.259 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 15:12:47.301 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 15:12:47.302 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 15:12:47.302 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 288 ms
+INFO  15 Aug 2020 - 15:12:47.370 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:12:47.407 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+INFO  15 Aug 2020 - 15:12:47.417 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+INFO  15 Aug 2020 - 15:12:47.448 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 15:12:47.458 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 15:12:47.461 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 0.469 seconds (JVM running for 307.911)
+INFO  15 Aug 2020 - 15:12:47.462 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+INFO  15 Aug 2020 - 15:12:48.824 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:12:48.825 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:12:48.828 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+DEBUG 15 Aug 2020 - 15:12:48.832 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:12:48.832 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:12:48.832 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:12:50.799 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:12:50.800 [http-nio-9010-exec-1] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:13:03.208 [http-nio-9010-exec-3] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:13:03.208 [http-nio-9010-exec-3] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:13:33.071 [http-nio-9010-exec-6] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:13:33.071 [http-nio-9010-exec-6] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:13:40.075 [http-nio-9010-exec-10] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:13:40.076 [http-nio-9010-exec-10] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:13:51.728 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:13:51.729 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:13:51.729 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:13:53.351 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:13:53.353 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:14:09.962 [http-nio-9010-exec-2] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:14:09.963 [http-nio-9010-exec-2] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:14:09.963 [http-nio-9010-exec-2] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:14:11.901 [http-nio-9010-exec-2] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:14:11.901 [http-nio-9010-exec-2] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:14:17.722 [http-nio-9010-exec-6] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:14:17.722 [http-nio-9010-exec-6] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:14:17.722 [http-nio-9010-exec-6] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:14:19.668 [http-nio-9010-exec-6] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:14:19.669 [http-nio-9010-exec-6] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:14:24.438 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:14:24.438 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:14:24.439 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - API Initializing
+INFO  15 Aug 2020 - 15:14:26.330 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:14:26.330 [http-nio-9010-exec-5] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:14:31.342 [http-nio-9010-exec-7] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:14:31.342 [http-nio-9010-exec-7] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:14:35.875 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - Retrieving the Current Weather Data
+INFO  15 Aug 2020 - 15:14:35.876 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - Latitude and Longitude input is there
+INFO  15 Aug 2020 - 15:14:35.876 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - API Initializing
+ERROR 15 Aug 2020 - 15:14:35.985 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - cityname is empty
+INFO  15 Aug 2020 - 15:14:35.986 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - cityname value initiazed
+INFO  15 Aug 2020 - 15:14:37.324 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - Data Retrieved
+INFO  15 Aug 2020 - 15:14:37.325 [http-nio-9010-exec-7] c.v.s.control.WeatherCurrentLocation - Showing Current Weather Details
+DEBUG 15 Aug 2020 - 15:16:58.215 [http-nio-9010-exec-8] c.v.s.c.WeatherUserRegistration - Enter your Details to create an account
+DEBUG 15 Aug 2020 - 15:17:03.779 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - Take the login credentials as input
+INFO  15 Aug 2020 - 15:17:03.779 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - Checking whether credentials are mathcing or not
+DEBUG 15 Aug 2020 - 15:17:14.881 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Verify the Login Credentials
+INFO  15 Aug 2020 - 15:17:15.184 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Checking whether Password is Matching or not
+INFO  15 Aug 2020 - 15:17:15.184 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Password Matching
+INFO  15 Aug 2020 - 15:17:15.184 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - User Login Successful
+DEBUG 15 Aug 2020 - 15:17:41.496 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - View your Profile
+INFO  15 Aug 2020 - 15:17:41.497 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - User Id Present
+DEBUG 15 Aug 2020 - 15:17:48.681 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - Change your Password
+INFO  15 Aug 2020 - 15:17:48.682 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - Create new Password
+DEBUG 15 Aug 2020 - 15:17:52.433 [http-nio-9010-exec-6] c.v.sai.control.WeatherUserLogin - Update your profile
+INFO  15 Aug 2020 - 15:17:52.433 [http-nio-9010-exec-6] c.v.sai.control.WeatherUserLogin - User Id Present
+INFO  15 Aug 2020 - 15:17:52.446 [http-nio-9010-exec-6] c.v.sai.control.WeatherUserLogin - Display Your Details
+DEBUG 15 Aug 2020 - 15:17:58.157 [http-nio-9010-exec-1] c.v.sai.control.WeatherUserLogin - Change your Password
+INFO  15 Aug 2020 - 15:17:58.158 [http-nio-9010-exec-1] c.v.sai.control.WeatherUserLogin - Create new Password
+DEBUG 15 Aug 2020 - 15:18:00.233 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - View your Profile
+INFO  15 Aug 2020 - 15:18:00.233 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - User Id Present
+DEBUG 15 Aug 2020 - 15:18:02.359 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Change your Password
+INFO  15 Aug 2020 - 15:18:02.360 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Create new Password
+DEBUG 15 Aug 2020 - 15:18:25.527 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - Change your Password
+INFO  15 Aug 2020 - 15:18:25.528 [http-nio-9010-exec-3] c.v.sai.control.WeatherUserLogin - Create new Password
+DEBUG 15 Aug 2020 - 15:18:37.762 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - Back to the User Home Page
+INFO  15 Aug 2020 - 15:18:37.762 [http-nio-9010-exec-8] c.v.sai.control.WeatherUserLogin - User Id Present
+DEBUG 15 Aug 2020 - 15:18:46.014 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Weather Map
+INFO  15 Aug 2020 - 15:18:46.014 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:18:46.014 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:18:46.014 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:18:59.262 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Air Quality Data
+INFO  15 Aug 2020 - 15:18:59.262 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:18:59.262 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Session
+INFO  15 Aug 2020 - 15:18:59.262 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:18:59.262 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - API Intializing
+INFO  15 Aug 2020 - 15:18:59.654 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing All Values in Model Attribute
+DEBUG 15 Aug 2020 - 15:19:41.964 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:19:41.964 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:19:41.964 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:19:41.964 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:19:48.251 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:19:48.251 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:19:48.251 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:19:48.251 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:19:55.883 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:19:55.884 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:19:55.884 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:19:55.884 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:20:03.150 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:20:03.150 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:20:03.150 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:20:21.961 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:20:21.962 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:20:21.962 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:20:21.962 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:20:27.480 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:20:27.481 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:20:27.481 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:20:38.382 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Current Weather in Detail
+INFO  15 Aug 2020 - 15:20:38.382 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:20:38.383 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:21:08.069 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:21:08.069 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:21:08.069 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:21:08.070 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:21:08.183 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:23:37.163 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:23:37.164 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:23:37.164 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:23:37.164 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:23:37.273 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:23:52.155 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:23:52.156 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:23:52.156 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:23:52.156 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:23:52.261 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:24:15.031 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Weather Map
+INFO  15 Aug 2020 - 15:24:15.032 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:15.032 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:24:15.032 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:24:19.151 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Air Quality Data
+INFO  15 Aug 2020 - 15:24:19.151 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:24:19.151 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+INFO  15 Aug 2020 - 15:24:19.151 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:19.151 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - API Intializing
+INFO  15 Aug 2020 - 15:24:19.552 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing All Values in Model Attribute
+DEBUG 15 Aug 2020 - 15:24:27.893 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:24:27.893 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:27.893 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:24:27.893 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:24:44.327 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:24:44.327 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:44.327 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:24:44.327 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:24:49.140 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:24:49.141 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:49.141 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:24:49.141 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:24:51.927 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:24:51.927 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:24:51.928 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:27:08.183 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:27:08.183 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:27:08.183 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:30:52.014 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:30:52.014 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:30:52.014 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:32:01.675 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:32:01.675 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:32:01.675 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:32:18.142 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:32:18.143 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:32:18.143 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:32:18.143 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:32:18.254 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:32:24.840 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Weather Map
+INFO  15 Aug 2020 - 15:32:24.840 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:32:24.841 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:32:24.841 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:32:31.919 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Air Quality Data
+INFO  15 Aug 2020 - 15:32:31.920 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:32:31.920 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+INFO  15 Aug 2020 - 15:32:31.920 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:32:31.920 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - API Intializing
+INFO  15 Aug 2020 - 15:32:32.297 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing All Values in Model Attribute
+DEBUG 15 Aug 2020 - 15:32:49.116 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:32:49.116 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:32:49.116 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:32:49.116 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:33:01.054 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:33:01.055 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:33:01.055 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:33:01.055 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:33:14.420 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:33:14.421 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:33:14.421 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:33:14.421 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:33:28.481 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:33:28.482 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:33:28.482 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:33:52.595 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Current Weather in Detail
+INFO  15 Aug 2020 - 15:33:52.596 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:33:52.596 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:34:44.187 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:34:44.188 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:34:44.188 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:34:44.188 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:34:54.451 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:34:54.452 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:34:54.452 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:34:57.940 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Tomorrow in Detail
+INFO  15 Aug 2020 - 15:34:57.940 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:34:57.940 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Stroing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:35:06.199 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:35:06.200 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:35:06.200 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:35:07.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Current Weather in Detail
+INFO  15 Aug 2020 - 15:35:07.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:35:07.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:37:34.703 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Log out from your account
+INFO  15 Aug 2020 - 15:37:34.703 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Deleting all Session Values
+INFO  15 Aug 2020 - 15:37:34.707 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Back to Home Page
+DEBUG 15 Aug 2020 - 15:37:40.035 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Take the login credentials as input
+INFO  15 Aug 2020 - 15:37:40.035 [http-nio-9010-exec-4] c.v.sai.control.WeatherUserLogin - Checking whether credentials are mathcing or not
+DEBUG 15 Aug 2020 - 15:37:49.618 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Verify the Login Credentials
+INFO  15 Aug 2020 - 15:37:49.643 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Checking whether Password is Matching or not
+INFO  15 Aug 2020 - 15:37:49.643 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - Password Matching
+INFO  15 Aug 2020 - 15:37:49.643 [http-nio-9010-exec-10] c.v.sai.control.WeatherUserLogin - User Login Successful
+DEBUG 15 Aug 2020 - 15:37:57.103 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:37:57.103 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:37:57.103 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:37:57.104 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:37:57.211 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:38:03.601 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Weather Map
+INFO  15 Aug 2020 - 15:38:03.601 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:03.601 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:38:03.601 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:38:14.512 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Air Quality Data
+INFO  15 Aug 2020 - 15:38:14.512 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:38:14.513 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+INFO  15 Aug 2020 - 15:38:14.513 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:14.513 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - API Intializing
+INFO  15 Aug 2020 - 15:38:14.898 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing All Values in Model Attribute
+DEBUG 15 Aug 2020 - 15:38:25.654 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:38:25.655 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:25.655 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:38:36.951 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Current Weather in Detail
+INFO  15 Aug 2020 - 15:38:36.952 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:36.952 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:38:45.914 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Tomorrow in Detail
+INFO  15 Aug 2020 - 15:38:45.915 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:45.915 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Stroing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:38:52.067 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:38:52.067 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:52.067 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:38:59.074 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:38:59.074 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:38:59.074 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:39:06.074 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:39:06.074 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:39:06.075 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:39:19.033 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:39:19.033 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:39:19.033 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:39:32.312 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:39:32.313 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:39:32.313 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:39:35.534 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Any Day Weather Data in Detail
+INFO  15 Aug 2020 - 15:39:35.535 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:39:35.535 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:39:46.570 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the 13 Days Weather Data
+INFO  15 Aug 2020 - 15:39:46.570 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:39:46.570 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:39:46.571 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:40:15.597 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Weather History Data
+INFO  15 Aug 2020 - 15:40:15.598 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:40:15.598 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:40:15.598 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:40:21.238 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:40:21.238 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:40:21.239 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:40:21.239 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:41:10.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Weather History Data
+INFO  15 Aug 2020 - 15:41:10.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:41:10.724 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:41:10.725 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:41:21.306 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:41:21.307 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:41:21.307 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:41:24.262 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:41:24.263 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:41:24.263 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:41:24.263 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:41:54.720 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:41:54.720 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:41:54.721 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:41:54.721 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:42:00.166 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:42:00.166 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:42:00.167 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:42:00.167 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:42:45.726 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:42:45.726 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:42:45.726 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:42:45.726 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:43:01.990 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:43:01.990 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:43:01.990 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:43:01.990 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:43:16.565 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:43:16.566 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:43:16.566 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:43:16.566 [http-nio-9010-exec-7] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:43:27.610 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:43:27.610 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:43:27.610 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:43:27.610 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:43:37.727 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:43:37.728 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:43:37.728 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:43:37.728 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:43:55.666 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Tomorrow Hourly Weather Data
+INFO  15 Aug 2020 - 15:43:55.666 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:43:55.666 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:43:55.666 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:44:01.157 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Hourly Weather Data After Tomorrow
+INFO  15 Aug 2020 - 15:44:01.158 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:01.158 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:44:01.158 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:44:06.301 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:44:06.301 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:06.302 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:44:10.372 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:44:10.373 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:10.373 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:44:10.373 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:44:16.349 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:44:16.349 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:16.349 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:44:23.481 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the 13 Days Weather Data
+INFO  15 Aug 2020 - 15:44:23.482 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:23.482 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:44:23.482 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:44:26.859 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:44:26.860 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:26.860 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:44:26.860 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:44:26.987 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:44:31.155 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:44:31.155 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:31.155 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:44:44.700 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Current Weather in Detail
+INFO  15 Aug 2020 - 15:44:44.700 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:44.700 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+DEBUG 15 Aug 2020 - 15:44:52.107 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Retrieving the Weather History Data
+INFO  15 Aug 2020 - 15:44:52.107 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:44:52.108 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:44:52.108 [http-nio-9010-exec-9] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:45:08.298 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:45:08.298 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:08.298 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:45:08.298 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - API Initializing
+ERROR 15 Aug 2020 - 15:45:08.426 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - cityname is empty
+INFO  15 Aug 2020 - 15:45:08.427 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - cityname value initiazed
+INFO  15 Aug 2020 - 15:45:08.428 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:45:14.781 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Weather Data for Today and Tomorrow
+INFO  15 Aug 2020 - 15:45:14.782 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:14.782 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Latitude and Longitude values are there
+INFO  15 Aug 2020 - 15:45:14.782 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - API Initializing
+INFO  15 Aug 2020 - 15:45:14.898 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - All values stored in Session
+DEBUG 15 Aug 2020 - 15:45:21.392 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Retrieving the Weather Map
+INFO  15 Aug 2020 - 15:45:21.393 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:21.393 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:45:21.393 [http-nio-9010-exec-6] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:45:24.615 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Retrieving the Air Quality Data
+INFO  15 Aug 2020 - 15:45:24.615 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:45:24.616 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing all values in Session
+INFO  15 Aug 2020 - 15:45:24.616 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:24.616 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - API Intializing
+INFO  15 Aug 2020 - 15:45:25.007 [http-nio-9010-exec-2] c.v.sai.control.WeatherForecast - Storing All Values in Model Attribute
+DEBUG 15 Aug 2020 - 15:45:34.670 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:45:34.670 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:34.670 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:45:34.670 [http-nio-9010-exec-8] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:45:57.498 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:45:57.499 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:45:57.499 [http-nio-9010-exec-4] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:46:21.478 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Retrieving the Today Hourly Weather Data
+INFO  15 Aug 2020 - 15:46:21.478 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:46:21.479 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:46:21.479 [http-nio-9010-exec-10] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:46:22.953 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Retrieving the Forecast Weather Data
+INFO  15 Aug 2020 - 15:46:22.953 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:46:22.953 [http-nio-9010-exec-1] c.v.sai.control.WeatherForecast - Storing All values in Model Attribute
+DEBUG 15 Aug 2020 - 15:46:27.126 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Retrieving the 13 Days Weather Data
+INFO  15 Aug 2020 - 15:46:27.126 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:46:27.126 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:46:27.126 [http-nio-9010-exec-3] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:46:28.939 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Retrieving the Weather History Data
+INFO  15 Aug 2020 - 15:46:28.940 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - User Id Present
+INFO  15 Aug 2020 - 15:46:28.940 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Model Attribute
+INFO  15 Aug 2020 - 15:46:28.941 [http-nio-9010-exec-5] c.v.sai.control.WeatherForecast - Storing all values in Session
+DEBUG 15 Aug 2020 - 15:46:35.705 [http-nio-9010-exec-9] c.v.sai.control.WeatherUserLogin - Log out from your account
+INFO  15 Aug 2020 - 15:46:35.705 [http-nio-9010-exec-9] c.v.sai.control.WeatherUserLogin - Deleting all Session Values
+INFO  15 Aug 2020 - 15:46:35.706 [http-nio-9010-exec-9] c.v.sai.control.WeatherUserLogin - Back to Home Page
+DEBUG 15 Aug 2020 - 15:46:41.418 [http-nio-9010-exec-6] com.virtusa.sai.control.WeatherMain - Enter into the Home Page
+INFO  15 Aug 2020 - 15:46:41.418 [http-nio-9010-exec-6] com.virtusa.sai.control.WeatherMain - Welcome to Home Page
+DEBUG 15 Aug 2020 - 15:46:50.813 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+DEBUG 15 Aug 2020 - 15:46:54.312 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+DEBUG 15 Aug 2020 - 15:46:55.453 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+DEBUG 15 Aug 2020 - 15:47:17.581 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - Authenticating user with email: admin@gmail.com
+WARN  15 Aug 2020 - 15:47:17.629 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - Checking the response
+INFO  15 Aug 2020 - 15:47:17.629 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - User authenticated Successfully
+DEBUG 15 Aug 2020 - 15:47:25.940 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl -  View Admin Profile
+INFO  15 Aug 2020 - 15:47:25.941 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:47:28.067 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Change Admin Password
+INFO  15 Aug 2020 - 15:47:28.068 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:47:30.196 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:47:30.196 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:47:30.208 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:47:36.206 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl - Add a new  Customer
+INFO  15 Aug 2020 - 15:47:36.207 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:47:36.207 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl - Register for new customer
+DEBUG 15 Aug 2020 - 15:47:41.669 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - Delete any Customer
+INFO  15 Aug 2020 - 15:47:41.669 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:47:41.669 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - Enter Customer email id
+DEBUG 15 Aug 2020 - 15:47:55.095 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:47:55.095 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:48:03.796 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Listing all customers
+INFO  15 Aug 2020 - 15:48:03.796 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:48:03.814 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Retrieving all customer details
+INFO  15 Aug 2020 - 15:48:03.814 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Displayed all Users
+DEBUG 15 Aug 2020 - 15:48:17.629 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:48:17.629 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:48:17.642 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:48:21.332 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:48:21.332 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:49:00.131 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl - Listing all customers
+INFO  15 Aug 2020 - 15:49:00.132 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:49:00.145 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl - Retrieving all customer details
+INFO  15 Aug 2020 - 15:49:00.145 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl - Displayed all Users
+DEBUG 15 Aug 2020 - 15:49:08.362 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:49:08.363 [http-nio-9010-exec-9] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:49:21.613 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:49:21.614 [http-nio-9010-exec-7] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:49:26.367 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:49:26.367 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:49:26.379 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:49:30.272 [http-nio-9010-exec-3] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:49:30.272 [http-nio-9010-exec-3] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:50:48.544 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:50:48.544 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:50:48.544 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:50:52.651 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:50:52.651 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:50:52.651 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:50:54.405 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+DEBUG 15 Aug 2020 - 15:51:09.181 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Authenticating user with email: admin@gmail.com
+WARN  15 Aug 2020 - 15:51:09.201 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Checking the response
+INFO  15 Aug 2020 - 15:51:09.201 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User authenticated Successfully
+DEBUG 15 Aug 2020 - 15:51:44.321 [http-nio-9010-exec-3] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+INFO  15 Aug 2020 - 15:53:47.284 [Thread-502] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:53:47.284 [Thread-502] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+INFO  15 Aug 2020 - 15:53:57.172 [Thread-502] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+INFO  15 Aug 2020 - 15:53:57.385 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 15:53:57.385 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 15:53:57.385 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 15:53:57.582 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 15:53:57.586 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 15:53:57.681 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 15:53:57.682 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 15:53:57.682 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 15:53:57.733 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 15:53:57.733 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 15:53:57.733 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 345 ms
+INFO  15 Aug 2020 - 15:53:57.825 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 15:53:57.871 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+INFO  15 Aug 2020 - 15:53:57.882 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+INFO  15 Aug 2020 - 15:53:57.911 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 15:53:57.921 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 15:53:57.925 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 0.563 seconds (JVM running for 2778.375)
+INFO  15 Aug 2020 - 15:53:57.926 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+INFO  15 Aug 2020 - 15:53:58.032 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:53:58.033 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 15:53:58.036 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+DEBUG 15 Aug 2020 - 15:53:58.040 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+INFO  15 Aug 2020 - 15:53:58.040 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl - Deleting all Session Values
+DEBUG 15 Aug 2020 - 15:54:25.366 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Authenticating user with email: admin@gmail.com
+WARN  15 Aug 2020 - 15:54:25.389 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Checking the response
+INFO  15 Aug 2020 - 15:54:25.389 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User authenticated Successfully
+DEBUG 15 Aug 2020 - 15:54:31.179 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:54:31.180 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:54:37.280 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 15:54:37.280 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:54:42.445 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Listing all customers
+INFO  15 Aug 2020 - 15:54:42.445 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:54:42.456 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Retrieving all customer details
+INFO  15 Aug 2020 - 15:54:42.456 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Displayed all Users
+DEBUG 15 Aug 2020 - 15:54:51.243 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:54:51.243 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:54:51.256 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:54:56.754 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:54:56.754 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:54:56.754 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:55:21.006 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:55:21.006 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:55:21.017 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:56:29.788 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:56:29.788 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:56:29.788 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:57:27.813 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:57:27.814 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:57:27.825 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:58:20.493 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+INFO  15 Aug 2020 - 15:58:20.493 [http-nio-9010-exec-5] com.virtusa.sai.control.AdminControl - Deleting all Session Values
+DEBUG 15 Aug 2020 - 15:58:47.573 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Authenticating user with email: admin@gmail.com
+WARN  15 Aug 2020 - 15:58:47.594 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Checking the response
+INFO  15 Aug 2020 - 15:58:47.594 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User authenticated Successfully
+DEBUG 15 Aug 2020 - 15:58:49.783 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl -  View Admin Profile
+INFO  15 Aug 2020 - 15:58:49.783 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:58:51.799 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Change Admin Password
+INFO  15 Aug 2020 - 15:58:51.800 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 15:58:54.109 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:58:54.109 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:58:54.109 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:58:55.985 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 15:58:55.986 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:58:55.997 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 15:58:57.479 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:58:57.479 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:58:57.479 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 15:59:07.176 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Add a new  Customer
+INFO  15 Aug 2020 - 15:59:07.176 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:59:07.176 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Register for new customer
+DEBUG 15 Aug 2020 - 15:59:11.943 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 15:59:11.943 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 15:59:11.944 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 16:16:07.676 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl -  View Admin Profile
+INFO  15 Aug 2020 - 16:16:07.676 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 16:16:10.197 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Change Admin Password
+INFO  15 Aug 2020 - 16:16:10.197 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 16:16:12.656 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Update Admin Details
+INFO  15 Aug 2020 - 16:16:12.656 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:12.675 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Display Admin Details
+DEBUG 15 Aug 2020 - 16:16:14.462 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 16:16:14.462 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:14.462 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 16:16:19.944 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Add a new  Customer
+INFO  15 Aug 2020 - 16:16:19.944 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:19.944 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Register for new customer
+DEBUG 15 Aug 2020 - 16:16:25.125 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Back to Home Page
+INFO  15 Aug 2020 - 16:16:25.125 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:25.126 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Welcome Home
+DEBUG 15 Aug 2020 - 16:16:28.825 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Delete any Customer
+INFO  15 Aug 2020 - 16:16:28.825 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:28.825 [http-nio-9010-exec-6] com.virtusa.sai.control.AdminControl - Enter Customer email id
+DEBUG 15 Aug 2020 - 16:16:48.649 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - Update Customer Details
+INFO  15 Aug 2020 - 16:16:48.649 [http-nio-9010-exec-8] com.virtusa.sai.control.AdminControl - User Id Present
+DEBUG 15 Aug 2020 - 16:16:52.089 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Add a new  Customer
+INFO  15 Aug 2020 - 16:16:52.089 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:52.089 [http-nio-9010-exec-10] com.virtusa.sai.control.AdminControl - Register for new customer
+DEBUG 15 Aug 2020 - 16:16:54.570 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Listing all customers
+INFO  15 Aug 2020 - 16:16:54.570 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User Id Present
+INFO  15 Aug 2020 - 16:16:54.580 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Retrieving all customer details
+INFO  15 Aug 2020 - 16:16:54.580 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Displayed all Users
+INFO  15 Aug 2020 - 16:17:54.872 [Thread-668] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 16:17:54.872 [Thread-668] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+INFO  15 Aug 2020 - 16:17:58.044 [Thread-668] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+INFO  15 Aug 2020 - 16:17:58.288 [restartedMain] c.v.sai.VirtusaWeatherApplication - Starting VirtusaWeatherApplication on DESKTOP-7T0I0MO with PID 10792 (C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather\target\classes started by saivetukuri in C:\Users\saivetukuri\eclipse-workspace\VirtusaWeather)
+DEBUG 15 Aug 2020 - 16:17:58.288 [restartedMain] c.v.sai.VirtusaWeatherApplication - Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+INFO  15 Aug 2020 - 16:17:58.288 [restartedMain] c.v.sai.VirtusaWeatherApplication - No active profile set, falling back to default profiles: default
+INFO  15 Aug 2020 - 16:17:58.469 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+INFO  15 Aug 2020 - 16:17:58.473 [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+INFO  15 Aug 2020 - 16:17:58.562 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9010 (http)
+INFO  15 Aug 2020 - 16:17:58.563 [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+INFO  15 Aug 2020 - 16:17:58.563 [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.36]
+INFO  15 Aug 2020 - 16:17:58.697 [restartedMain] org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+INFO  15 Aug 2020 - 16:17:58.698 [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+INFO  15 Aug 2020 - 16:17:58.698 [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 407 ms
+INFO  15 Aug 2020 - 16:17:58.787 [restartedMain] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 16:17:58.825 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+INFO  15 Aug 2020 - 16:17:58.839 [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+INFO  15 Aug 2020 - 16:17:58.865 [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+INFO  15 Aug 2020 - 16:17:58.875 [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9010 (http) with context path ''
+INFO  15 Aug 2020 - 16:17:58.878 [restartedMain] c.v.sai.VirtusaWeatherApplication - Started VirtusaWeatherApplication in 0.614 seconds (JVM running for 4219.329)
+INFO  15 Aug 2020 - 16:17:58.880 [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+INFO  15 Aug 2020 - 16:18:03.599 [http-nio-9010-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 16:18:03.600 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+INFO  15 Aug 2020 - 16:18:03.604 [http-nio-9010-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+DEBUG 15 Aug 2020 - 16:18:03.608 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+INFO  15 Aug 2020 - 16:18:03.608 [http-nio-9010-exec-1] com.virtusa.sai.control.AdminControl - Deleting all Session Values
+DEBUG 15 Aug 2020 - 16:18:15.147 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Authenticating user with email: admin@gmail.com
+WARN  15 Aug 2020 - 16:18:15.167 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - Checking the response
+INFO  15 Aug 2020 - 16:18:15.167 [http-nio-9010-exec-2] com.virtusa.sai.control.AdminControl - User authenticated Successfully
+DEBUG 15 Aug 2020 - 16:18:16.997 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl -  Enter the Login Credentials
+INFO  15 Aug 2020 - 16:18:16.997 [http-nio-9010-exec-4] com.virtusa.sai.control.AdminControl - Deleting all Session Values
+INFO  15 Aug 2020 - 18:05:48.209 [RMI TCP Connection(2)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+INFO  15 Aug 2020 - 18:05:48.383 [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  15 Aug 2020 - 18:05:48.384 [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+INFO  15 Aug 2020 - 18:05:53.942 [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.

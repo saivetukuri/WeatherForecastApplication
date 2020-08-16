@@ -1,0 +1,345 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+       <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ page import="org.json.*" %>
+   <%@ page import="org.json.*" %>
+   <%@page import="java.util.*" %>
+   <%@page import="java.util.concurrent.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+.hourly {
+  
+  width: 100%;
+  
+  background-color: white;
+  color: blue;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+</style>
+<body style="background-color:#DCDCDC">
+<%@ include file="WeatherAfterLoginHead.jsp" %>
+<%@ include file="Alerts.jsp" %>
+<br>
+<%@ include file="pagination.jsp" %>
+<div class="container" style="width:50%;">
+<div class="container"  >
+
+<div style="display:flex;flex-wrap: wrap;align-items:center;justify-content:space-between" >
+<div class="card" style="width:49%;">
+CURRENT WEATHER
+<br>
+<div id="timenowdetails">
+Time: ${firstnow.get("time")}
+<fmt:parseNumber var="parsedNumber" type="number" value="${fn:substring(firstnow.get('time'),0,2)}" />
+		<c:set var="hour" value="${parsedNumber}"/>
+<c:if test="${hour >= 12}">
+ <c:out value="pm"/>
+</c:if>
+<c:if test="${hour < 12}">
+ <c:out value="am"/>
+</c:if>
+</div>
+<br>
+<div class="container" id="tempdetails" style="display: flex;flex-wrap: wrap; align-items:center;">
+<div style="display:flex;flex-wrap: wrap;align-items:center;">
+<div >
+<img class="img-valign" id="iconnowdetails"src="">
+</div>
+<div >
+			<p id="text2">
+			
+			</p>
+<small style="font-size:15px;" >realfeel:<small id="feels_likedetails">${firstnow.get("feel_like")}</small></small>
+			</div>
+			</div>
+			
+			
+			</div>
+			<div id="descdetails" style="margin-left:1%;">
+			${firstnow.get("main")}
+		</div>
+		</div>
+	<div class="card" style="width:49%;" id="nowmoredetails">
+		<!-- <div style="display:flex;flex-wrap: wrap;align-items:center;" id="nowmoredetails">
+		
+			</div> -->
+		</div>
+		</div>
+		<br>
+		<div class="row">
+<div class="col-12" >
+<a href="/hourly?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" style="width:100%"> See Hourly ></button></a>
+</div>
+		</div>
+		
+
+<br>
+<a href="/tmwdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" id="tmwdatebutton" style="width:100%">         ></button></a>
+</div>
+<br>
+<div class="container"  >
+<div style="display:flex;flex-wrap: wrap;align-items:center;justify-content:space-between;margin: 0 auto;float: none;">
+<div id="nowdaydetails" class="card" style="width:49%;">
+
+
+
+<%-- ${tmwfull.get("temp").getDouble("day")}<br>
+${tmwfull.get("feels_like").getDouble("day")}<br>
+${tmwweather.get("description")}<br>
+ --%>
+
+</div>
+
+<div  class="card" style="width:49%; ">
+<div style="display:flex;flex-wrap: wrap;align-items:center;justify-content:space-between" >
+<div>
+SUNRISE/SUNSET<br>
+<div id="nowsunrise">
+Sunrise<br>
+<%-- <%JSONObject tmwfull=(JSONObject)session.getAttribute("tmwfull");%>
+ <%String sunrise=new java.text.SimpleDateFormat("HH:mm").format(tmwfull.getDouble("sunrise")*1000L).toString();%>
+ <%=sunrise%>am --%>
+ 
+</div>
+</div>
+<div style="margin-right:15%">
+<img src="images/sun.png" height="128px" width="128px">
+</div>
+</div>
+<%-- ${tmwdate}<br>
+${tmwfull.get("temp").getDouble("night")}<br>
+${tmwfull.get("feels_like").getDouble("night")}<br> --%>
+<div style="display:flex;flex-wrap: wrap;align-items:center;justify-content:space-between" >
+<div id="nowsunset">
+Sunset<br>
+<%--  <%String sunset=new java.text.SimpleDateFormat("HH:mm").format(tmwfull.getDouble("sunset")*1000L).toString();%>
+ <%=sunset%>pm --%>
+</div>
+<div id="nowtimediff" style="margin-right:15%">
+Duration<br>
+<%-- <%=TimeUnit.MILLISECONDS.toMinutes(tmwfull.getLong("sunset")*1000L-tmwfull.getLong("sunrise")*1000L)/60 %>:<%=TimeUnit.MILLISECONDS.toMinutes(tmwfull.getLong("sunset")*1000L-tmwfull.getLong("sunrise")*1000L)%60 %>hrs
+ --%></div>
+</div>
+
+</div>
+
+</div>
+</div>
+<br>
+
+<div class="container" >
+<div style="display:flex;flex-wrap: wrap;align-items:center;justify-content:space-between">
+<div  class="card " id="nowmorningdetails" style="width:20%;">
+<b>Morning:</b>
+<%-- ${tmwfull.get("temp").get("morn")}<br>
+real feel:${tmwfull.get("feels_like").get("morn") } --%>
+</div>
+<div  class="card" id="nowafternoondetails" style="width:20%;">
+<b>Afternoon:</b>
+<%-- ${tmwfull.get("temp").get("day")}<br>
+real feel:${tmwfull.get("feels_like").get("day")} --%>
+</div>
+<div  class="card" id="noweveningdetails" style="width:20%;">
+
+<b>Evening:</b>
+<%-- ${nowfull.get("temp").get("eve")}<br>
+real feel:${tmwfull.get("feels_like").get("eve")} --%>
+</div>
+<div  class="card" id="nownightdetails1" style="width:20%;">
+<b>Night:</b>
+<%-- ${tmwfull.get("temp").get("night")}<br>
+real feel:${tmwfull.get("feels_like").get("night")} --%>
+</div>
+
+</div>
+</div>
+<br>
+<%-- 
+<div class="card">
+<div class="row">
+<div  class="col-3" id="nowmorningdetails">
+Morning:<br>
+${todayfull.get("temp").get("morn")}<br>
+real feel:${todayfull.get("feels_like").get("morn") }
+</div>
+<div  class="col-3" id="nowafternoondetails">
+Afternoon:<br>
+${todayfull.get("temp").get("day")}<br>
+real feel:${todayfull.get("feels_like").get("day")}
+</div>
+<div  class="col-3" id="noweveningdetails">
+Evening:<br>
+${todayfull.get("temp").get("eve")}<br>
+real feel:${todayfull.get("feels_like").get("eve")}
+</div>
+<div  class="col-3" id="nownightdetails1">
+Night:<br>
+${todayfull.get("temp").get("night")}<br>
+real feel:${todayfull.get("feels_like").get("night")}
+</div>
+
+</div>
+</div> --%>
+<%-- <div class="card">
+<div class="row">
+<div class="col-3">
+SUNRISE/SUNSET<br>
+<div id="nowsunrise">
+Sunrise<br>
+<%JSONObject todayfull=(JSONObject)session.getAttribute("todayfull");%>
+ <%String sunrise=new java.text.SimpleDateFormat("HH:mm").format(todayfull.getDouble("sunrise")*1000L).toString();%>
+ <%=sunrise%>am
+ 
+</div>
+<div id="nowsunset">
+Sunset<br>
+ <%String sunset=new java.text.SimpleDateFormat("HH:mm").format(todayfull.getDouble("sunset")*1000L).toString();%>
+ <%=sunset%>pm
+</div>
+</div>
+<div id="nowtimediff">
+<%=TimeUnit.MILLISECONDS.toMinutes(todayfull.getLong("sunset")*1000L-todayfull.getLong("sunrise")*1000L)/60 %>:<%=TimeUnit.MILLISECONDS.toMinutes(todayfull.getLong("sunset")*1000L-todayfull.getLong("sunrise")*1000L)%60 %>hrs
+</div>
+</div>
+</div> --%>
+<%-- 
+${firstnow.get("temperature")} C<br>
+real feel:${firstnow.get("feel_like")}<br>
+${firstnow.get("main")}<br>
+      </div>
+      <div class="col-6">
+      UV Index: ${todayfull.get("uvi")}<br>
+      Wind:${todayfull.get("wind_speed") }<br>
+      Humidity:${todayfull.get("humidity")}<br>
+      Dew Points:${todayfull.get("dew_point")}<br>
+      Pressure:${todayfull.get("pressure")}<br>
+      Cloud Cover:${todayfull.get("clouds") }<br>
+      Visibility:${json.get("visibility")}<br>
+      
+      </div>
+</div>
+<div class="row">
+<div class="col-12">
+<a href="/hourly?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" style="width:100%"> See Hourly ></button></a>
+</div>
+</div>
+</div>
+<br>
+<a href="/tmwdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" style="width:100%"> ${todaydate}         ></button></a>
+<br><br>
+<div class="card">
+<div class="row">
+<div class="col-6">
+DAY<br>
+${todaydate}<br>
+${todayfull.get("temp").getDouble("day")}<br>
+${todayfull.get("feels_like").getDouble("day")}<br>
+${todayweather.get("description")}<br>
+
+
+</div>
+
+<div class="col-6">
+Night<br>
+${todaydate}<br>
+${todayfull.get("temp").getDouble("night")}<br>
+${todayfull.get("feels_like").getDouble("night")}<br>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="row">
+<div  class="col-3">
+Morning:<br>
+${todayfull.get("temp").get("morn")}<br>
+real feel:${todayfull.get("feels_like").get("morn") }
+</div>
+<div  class="col-3">
+Afternoon:<br>
+${todayfull.get("temp").get("day")}<br>
+real feel:${todayfull.get("feels_like").get("day")}
+</div>
+<div  class="col-3">
+Evening:<br>
+${todayfull.get("temp").get("eve")}<br>
+real feel:${todayfull.get("feels_like").get("eve")}
+</div>
+<div  class="col-3">
+Night:<br>
+${todayfull.get("temp").get("night")}<br>
+real feel:${todayfull.get("feels_like").get("night")}
+</div>
+
+</div>
+</div>
+<div class="card">
+<div class="row">
+<div class="col-3">
+SUNRISE/SUNSET<br>
+<div>
+Sunrise<br>
+<%JSONObject todayfull=(JSONObject)session.getAttribute("todayfull");%>
+ <%String sunrise=new java.text.SimpleDateFormat("HH:mm").format(todayfull.getDouble("sunrise")*1000L).toString();%>
+ <%=sunrise%>am
+ 
+</div>
+<div>
+Sunset<br>
+ <%String sunset=new java.text.SimpleDateFormat("HH:mm").format(todayfull.getDouble("sunset")*1000L).toString();%>
+ <%=sunset%>pm
+</div>
+</div>
+<div>
+<%=TimeUnit.MILLISECONDS.toMinutes(todayfull.getLong("sunset")*1000L-todayfull.getLong("sunrise")*1000L)/60 %>:<%=TimeUnit.MILLISECONDS.toMinutes(todayfull.getLong("sunset")*1000L-todayfull.getLong("sunrise")*1000L)%60 %>hrs
+</div>
+</div>
+
+</div> --%>
+<br>
+<a href="weatherhistory?lat=${latitude}&lng=${longitude}&cityname=${cityname}&units=${units}"><button class="hourly" style="width:100%">Previous 5 Days Data</button></a>
+</div>
+<%@ include file="todaydetailsretrieve.jsp" %>
+<style>
+ .img-valign {
+  vertical-align: middle;
+  margin-bottom: 0.75em;
+}
+p { 
+            display: block; 
+            margin-bottom: 0em; 
+        }
+.text1 {
+  font-size: 44px;
+}
+
+#text2 {
+
+  font-size: 44px;
+}
+.text2 {
+
+  font-size: 44px;
+}
+.card_body{
+display: flex;
+    flex-grow: 1;
+    margin-bottom: 16px;
+}
+
+</style>	
+</body>
+</html>

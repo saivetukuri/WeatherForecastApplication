@@ -1,0 +1,348 @@
+drop table WeatherUser;
+CREATE TABLE IF NOT EXISTS WeatherUser (email varchar(50),firstname varchar(50),lastname varchar(50),
+mobile BIGINT,password varchar(100),country varchar(20),
+PRIMARY KEY (`email`));
+
+
+User registration
+drop procedure UserReg;
+DELIMITER $$
+Create Procedure UserReg
+(
+in emailid varchar(50),
+in fname varchar(50),
+in lname varchar(50),
+in phone bigint,
+in pass varchar(100),
+in country varchar(50),
+out response varchar(50))
+ 
+BEGIN
+  -- exit if the duplicate key occurs
+  DECLARE EXIT HANDLER FOR 1062 set response=(SELECT 'Duplicate keys error encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+    
+INSERT INTO WeatherUser(email,firstname,lastname,mobile,password,country)
+VALUES(emailid,fname,lname,phone,sha1(pass),country);
+
+ if (SELECT COUNT(*) FROM WeatherUser WHERE email = emailid)=1
+ then
+ set response='Success';
+ end if;
+    
+END$$
+DELIMITER ;
+call UserReg('siva@gmail.com','Siva','Vetukuri',999999999,'siva','India',@response);
+select @response;
+
+
+Login
+drop procedure UserLogin;
+DELIMITER $$
+create procedure UserLogin
+(in pemail varchar(50),
+in ppassword varchar(100),
+out response varchar(50))
+BEGIN
+declare var_email int DEFAULT 0;
+ IF (SELECT COUNT(*) FROM WeatherUser WHERE email = pemail)=1
+    then
+        SET @var_email=(SELECT email FROM  WeatherUser WHERE email=pemail AND password=sha1(ppassword));
+
+       IF(@var_email IS NULL)
+       then
+           SET response='Incorrect password';
+       ELSE  
+           SET response='User successfully logged in';
+		END IF;
+    ELSE
+       SET response='Invalid login';
+END IF;
+END$$
+DELIMITER ;
+
+call UserLogin('siva@gmail.com','jkajk',@response);
+select @response;
+
+
+Update
+drop procedure UserUpdate;
+DELIMITER $$
+create procedure UserUpdate
+(in pemail varchar(50),
+in pfirstname varchar(50),
+in plastname varchar(50),
+in pmobile varchar(50),
+in pcountry varchar(50),
+out response varchar(50))
+BEGIN
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+ IF (SELECT COUNT(*) FROM WeatherUser WHERE email = pemail)=1
+    then
+    
+        UPDATE WeatherUser set firstname=pfirstname,lastname=plastname,mobile=pmobile,country=pcountry where email=pemail;
+		set response='Success';
+      
+    ELSE
+       SET response='no User Exists';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherUser;
+call UserUpdate('sai@gmail.com','Sai','Vetukuri',7337555998,'USA',@response);
+select @response;
+
+
+Change Password
+drop procedure UserPassChang;
+DELIMITER $$
+create procedure UserPassChang(
+in pemail varchar(50),
+in oldppassword varchar(100),
+in newppassword varchar(100),
+out response varchar(50))
+BEGIN
+ declare var_email int DEFAULT 0;
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+
+ IF (SELECT COUNT(*) FROM WeatherUser WHERE email = pemail)=1
+    then
+        SET @var_email=(SELECT email FROM  WeatherUser WHERE email=pemail AND password=sha1(oldppassword));
+
+       IF(@var_email IS NULL)
+       then
+           SET response='Incorrect password';
+       ELSE 
+        UPDATE WeatherUser set password=sha1(newppassword) where email=pemail;
+           SET response='User password changed successfully ';
+		END IF;
+    ELSE
+       SET response='No User exists';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherUser;
+call UserPassChang('sa@gmail.com','durga','sai',@response);
+select @response;
+
+User Details
+drop procedure UserDetails;
+DELIMITER $$
+create procedure UserDetails
+(in pemail varchar(50),
+out pfirstname varchar(50),
+out plastname varchar(50),
+out pmobile varchar(50),
+out pcountry varchar(50),
+out response varchar(50))
+BEGIN
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+ IF (SELECT COUNT(*) FROM WeatherUser WHERE email = pemail)=1
+    then
+    
+        SELECT firstname,lastname,mobile,country INTO pfirstname,plastname,pmobile,pcountry FROM WeatherUser where email=pemail;
+		set response='Success';
+      
+    ELSE
+       SET response='no User Exists Here';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherUser where email='d@gmail.com';
+call UserDetails('d@gmail.com',@pfirstname,@plastname,@pmobile,@pcountry,@response);
+select @pfirstname;
+select @plastname;
+select @pmobile;
+select @pcountry;
+select @response;
+
+Admin Table Creation
+
+drop table WeatherAdmin;
+CREATE TABLE IF NOT EXISTS WeatherAdmin (email varchar(50),firstname varchar(50),lastname varchar(50),
+mobile BIGINT,password varchar(100),country varchar(20),
+PRIMARY KEY (`email`));
+select * from WeatherAdmin;
+
+Admin Registration
+drop procedure AdminReg;
+DELIMITER $$
+Create Procedure AdminReg
+(
+in emailid varchar(50),
+in fname varchar(50),
+in lname varchar(50),
+in phone bigint,
+in pass varchar(100),
+in country varchar(50),
+out response varchar(50))
+ 
+BEGIN
+  -- exit if the duplicate key occurs
+  DECLARE EXIT HANDLER FOR 1062 set response=(SELECT 'Duplicate keys error encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+    
+INSERT INTO WeatherAdmin(email,firstname,lastname,mobile,password,country)
+VALUES(emailid,fname,lname,phone,sha1(pass),country);
+
+ if (SELECT COUNT(*) FROM WeatherAdmin WHERE email = emailid)=1
+ then
+ set response='Success';
+ end if;
+    
+END$$
+DELIMITER ;
+call AdminReg('admin@gmail.com','Admin','ASA',991997993,'admin','India',@response);
+select @response;
+
+Admin Login
+drop procedure AdminLogin;
+DELIMITER $$
+create procedure AdminLogin
+(in pemail varchar(50),
+in ppassword varchar(100),
+out response varchar(50))
+BEGIN
+declare var_email int DEFAULT 0;
+ IF (SELECT COUNT(*) FROM WeatherAdmin WHERE email = pemail)=1
+    then
+        SET @var_email=(SELECT email FROM  WeatherAdmin WHERE email=pemail AND password=sha1(ppassword));
+
+       IF(@var_email IS NULL)
+       then
+           SET response='Incorrect password';
+       ELSE  
+           SET response='User successfully logged in';
+		END IF;
+    ELSE
+       SET response='Invalid login';
+END IF;
+
+END$$
+DELIMITER ;
+
+call AdminLogin('admin@gmail.com','admin',@response);
+select @response;
+
+
+Change Admin Password
+
+drop procedure AdminPassChang;
+DELIMITER $$
+create procedure AdminPassChang(
+in pemail varchar(50),
+in oldppassword varchar(100),
+in newppassword varchar(100),
+out response varchar(50))
+BEGIN
+ declare var_email int DEFAULT 0;
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+
+ IF (SELECT COUNT(*) FROM WeatherAdmin WHERE email = pemail)=1
+    then
+        SET @var_email=(SELECT email FROM  WeatherAdmin WHERE email=pemail AND password=sha1(oldppassword));
+
+       IF(@var_email IS NULL)
+       then
+           SET response='Incorrect password';
+       ELSE 
+        UPDATE WeatherAdmin set password=sha1(newppassword) where email=pemail;
+           SET response='User password changed successfully ';
+		END IF;
+    ELSE
+       SET response='No User exists';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherAdmin;
+call AdminPassChang('admin@gmail.com','jam','admin',@response);
+select @response;
+
+
+Update Admin Details
+
+drop procedure AdminUpdate;
+DELIMITER $$
+create procedure AdminUpdate
+(in pemail varchar(50),
+in pfirstname varchar(50),
+in plastname varchar(50),
+in pmobile varchar(50),
+in pcountry varchar(50),
+out response varchar(50))
+BEGIN
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+ IF (SELECT COUNT(*) FROM WeatherAdmin WHERE email = pemail)=1
+    then
+    
+        UPDATE WeatherAdmin set firstname=pfirstname,lastname=plastname,mobile=pmobile,country=pcountry where email=pemail;
+		set response='Success';
+      
+    ELSE
+       SET response='no User Exists';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherAdmin;
+call AdminUpdate('admin@gmail.com','Admin','ASA',991997993,'USA',@response);
+select @response;
+
+Delete User
+
+drop procedure DeleteUser;
+DELIMITER $$
+create procedure DeleteUser(
+in pemail varchar(50),
+out response varchar(50))
+BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+ IF (SELECT COUNT(*) FROM WeatherUser WHERE email = pemail)=1
+    then
+    
+        DELETE from WeatherUser where email=pemail;
+		set response='Success';
+      
+    ELSE
+       SET response='no User Exists';
+END IF;
+END$$
+DELIMITER ;
+select * from WeatherUser;
+call DeleteUser('k@gmail.com',@response);
+select @response;
+
+List all Customers
+
+drop procedure AllUsers;
+DELIMITER $$
+create procedure AllUsers(
+out response varchar(50)
+)
+BEGIN
+DECLARE EXIT HANDLER FOR SQLEXCEPTION set response=(SELECT 'SQLException encountered' Message); 
+    DECLARE EXIT HANDLER FOR SQLSTATE '23000' set response=(SELECT 'SQLSTATE 23000' ErrorCode);
+    IF (SELECT COUNT(*) FROM WeatherUser )>0
+    then
+    
+        SELECT * FROM WeatherUser;
+		set response='Success';
+      
+    ELSE
+       SET response='no Users';
+END IF;
+END$$
+DELIMITER ;
+select count(*) from WeatherUser;
+call AllUsers(@response);
+select @response;

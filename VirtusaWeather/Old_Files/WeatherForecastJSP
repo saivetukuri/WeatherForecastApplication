@@ -1,0 +1,641 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+       <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+
+<body style="background-color:#DCDCDC">
+<%@ include file="WeatherAfterLoginHead.jsp" %>
+<%@ include file="Alerts.jsp" %>
+<br>
+<%@ include file="pagination.jsp" %>
+
+
+<div id="map" style="width: 50%;height:450px;margin: 0 auto;float: none;"></div>
+
+	<script>
+	var lat="<%=session.getAttribute("latitude") %>";
+	var lng="<%=session.getAttribute("longitude") %>";
+		initMapLog(lat,lng,'${cityname}');
+		
+		/* if (!confirm("Please not that this page is only a demonstration for an OpenWeatherMap leaflet plugin.\nIt is not intended for productive use.\n\nVisit https://github.com/buche/leaflet-openweathermap for more information.\n\nClick OK to proceed with the map or click Cancel to visit Github.")) {
+			window.location.href = "https://github.com/buche/leaflet-openweathermap";
+		} */
+
+	</script>
+	<br>
+<div class="container">
+<div class="card" style="width:65%;margin: 0 auto;float: none;">
+
+		<div class="card-body">
+		<div class="card-title">
+			<h6 >
+			${cityname},${country.get("country")}<br>
+				<b>Current Weather</b>
+			</h6>
+			</div>
+			<div class="card-subtitle">
+
+			<p id="timenow">
+
+					</p>
+					
+			 
+			</div>
+			<div class="container" style="display: flex;flex-wrap: wrap; align-items:center;">
+			<div style="display:flex;flex-wrap: wrap;align-items:center;">
+			<div >
+			<img class="img-valign" id="iconnow"  src="" alt="Weather widget" >
+			</div>
+			<div >
+			<p id="text2">
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:15px;" >realfeel:<small id="feels_like">${firstnow.get("feel_like")}</small></small>
+			</div>
+			</div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div id="details" style="font-size:18px">
+			
+			</div>
+			</div>
+				<div  style="display:flex;justify-content: space-between;flex-wrap:wrap;align-items: center;">
+		<div id="desc" style="margin-left:1%;">
+			${firstnow.get("main")}
+		</div>
+		<div style="margin-right:10%;padding:10px;">
+		<a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="btn btn-secondary" style="font-size:13px">
+More Details  &nbsp;<i class='fas fa-arrow-right'></i>
+</a>
+		</div>
+		</div>
+			</div>
+		
+		</div>
+		<br>
+	<div class="card" style="width:65%;margin: 0 auto;float: none;">
+<div class="card-body text">
+<div class="container" style="display:flex;justify-content: space-equally;flex-wrap:wrap;">
+
+<div  id="aqivalue" class="col-6" style="display:flex;flex-wrap: wrap;">
+Current Air Quality<br>
+
+</div>
+
+<div style="display:flex;flex-wrap: wrap;align-items:center;" class="col-6">
+<div id="airdesc">
+Air Quality:${firstnow.get("air_quality")}
+</div>
+<br>
+<div style="margin-right:10%;padding:10px;">
+<a href="/airquality?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="btn btn-secondary" style="font-size:13px">
+More Details  &nbsp;<i class='fas fa-arrow-right'></i>
+</a> 
+</div>
+
+</div>
+
+</div>
+
+<br>
+</div>
+</div>	
+<br>
+
+
+<div class="card" style="width:65%;margin: 0 auto;float: none;">
+		<div class="card-body">
+			<div class="card-title" style="display:flex;justify-content: space-between;flex-wrap:wrap;">
+				<h4>Tonight</h4>
+				<p style="float:right;font-size:15px" id="todaydate"></p>
+			</div>
+			
+			<div class="container" style="display: flex;justify-content: space-evenly;flex-wrap: wrap; align-items:center;">
+			<div style="display:flex;flex-wrap: wrap;align-items:center;">
+			<div >
+			<img class="img-valign" id="icontoday" src="" >
+			</div>
+			<div >
+			<p class="text2" id="todaytemp">${todayfull.get("temp").getDouble("eve")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:20px;" >realfeel:<small id="todayfeel_like">${todayfull.get("feels_like").getDouble("day")}</small></small>
+			</div>
+			</div>
+			
+			
+			
+			<div id="todaydesc">
+${todayweather.get("main") }
+</div>
+ 			
+
+			
+			
+					<div>
+					
+<a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}">
+<i style="color:black;" class='fas fa-arrow-right'></i>
+</a>
+ 			
+
+			
+			</div>
+	
+			</div>
+			
+			</div>
+			
+
+		</div>
+		<br>
+		
+		
+		
+		<div class="card" style="width:65%;margin: 0 auto;float: none;">
+		<div class="card-body">
+		<div class="card-title" style="display:flex;justify-content: space-between;flex-wrap:wrap;">
+			<h4 >
+				Tomorrow</h4>
+				<p style="float:right;font-size:15px" id="tmwdate">${tmwdate}</p>
+			
+			</div>
+			<div class="container" style="display: flex;justify-content: space-evenly;flex-wrap: wrap; align-items:center;">
+			<div style="display:flex;flex-wrap: wrap;align-items:center;">
+			<div>
+			<img class="img-valign"  id="icontmw" src="" alt="Weather widget" >
+			</div>
+			<div >
+			<p class="text2" id="tmwtemp">${tmwfull.get("temp").getDouble("morn")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:20px;" >realfeel:<small id="tmwfeel_like">${tmwfull.get("feels_like").getDouble("day")}</small></small>
+			</div>
+			</div>
+			
+			
+			<div id="tmwdesc">
+			
+${tmwweather.get("main")}
+</div>
+ 			
+
+			
+			
+					<div>
+					
+<a href="/tmwdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}"  >
+<i style="color:black;" class='fas fa-arrow-right'></i>
+</a>
+ 			
+
+			
+			</div>
+			</div>
+			</div>
+			
+
+		</div>
+</div>
+		<%@ include file="Weatherretrieve1.jsp" %>
+		
+		<br>
+
+	<style>
+ .img-valign {
+  vertical-align: middle;
+  margin-bottom: 0.75em;
+}
+p { 
+            display: block; 
+            margin-bottom: 0em; 
+        }
+.text1 {
+  font-size: 44px;
+}
+
+#text2 {
+
+  font-size: 64px;
+}
+.text2 {
+
+  font-size: 64px;
+}
+.card_body{
+display: flex;
+    flex-grow: 1;
+    margin-bottom: 16px;
+}
+hr { margin: 0.5em auto; }
+</style>	
+<%--
+<div class="container">
+
+ <div class="card" style="width:65%;height:65%;margin: 0 auto;float: none;">
+<h3>${firstnow.get("city")},${firstnow.get("country")}</h3>
+		<div class="card-body">
+			<h4 class="card-title">
+				Current Weather
+			</h4>
+			<p class="card-subtitle">
+				<fmt:formatDate var="time" value="${now}" pattern="HH:mm" />
+					<p>${firstnow.get("time")}
+					<fmt:parseNumber var="parsedNumber" type="number" value="${fn:substring(firstnow.get('time'),0,2)}" />
+		
+		<c:set var="hour" value="${parsedNumber}"/>
+<c:if test="${hour >= 12}">
+ <c:out value="pm"/>
+</c:if>
+<c:if test="${hour < 12}">
+ <c:out value="am"/>
+ </c:if>
+					</p>
+					
+			</p>
+			<div class="container">
+			<div style="width:20%;float:left">
+			<img class="img-valign"  src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${weather1.get('icon')}.png" 
+			alt="Weather widget" >
+			</div>
+			<div style="float:left;width:40%">
+			<p class="text2">${firstnow.get("temperature")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:20px;" >realfeel:<small>${firstnow.get("feel_like")}</small></small>
+			</div>
+			<div style="float:right;width:40%">
+			Humidity:${json.get("main").getDouble("humidity")}%
+			<hr>
+			Wind Speed:${json.get("wind").getDouble("speed")}
+			<hr>
+			AQI:${air.get("data").get("aqi")}
+			
+ <c:if test="${!firstnow.has('aqi')}">
+
+</c:if>
+<c:if test="${firstnow.get('aqi')>=0&&firstnow.get('aqi')<=50}">
+Air Quality: Good
+</c:if>
+<c:if test="${firstnow.get('aqi')>51&&firstnow.get('aqi')<=100}">
+Air Quality:Moderate<br>
+
+</c:if>
+<c:if test="${firstnow.get('aqi')>101&&firstnow.get('aqi')<=150}">
+Unhealthy for Sensitive Groups<br>
+Members of sensitive groups may experience health effects. The general public is not likely to be affected.
+</c:if>
+<c:if test="${firstnow.get('aqi')>151&&firstnow.get('aqi')<=200}">
+Unhealthy<br>
+Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects
+</c:if>
+<c:if test="${firstnow.get('aqi')>201 && firstnow.get('aqi')<=300}">
+Very Unhealthy	<br>
+Health warnings of emergency conditions. The entire population is more likely to be affected.
+</c:if>
+
+<c:if test="${firstnow.get('aqi')>300}">
+Hazardous<br>
+Health alert: everyone may experience more serious health effects
+</c:if>
+
+<a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="btn btn-secondary">
+More Details  &nbsp;<i class='fas fa-arrow-right'></i>
+</a> 
+			
+			</div>
+			</div>
+			</div>
+			
+		<p class="card-subtitle">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			${firstnow.get("main")}
+		</p>
+		</div>
+		<br>
+		
+		
+		
+		Duplicate
+		
+	<div class="card" style="width:65%;margin: 0 auto;float: none;">
+
+		<div class="card-body">
+		<div class="card-title">
+			<h6 >
+			${firstnow.get("city")},${firstnow.get("country")}<br>
+				<b>Current Weather</b>
+			</h6>
+			</div>
+			<div class="card-subtitle">
+			<p >
+				<fmt:formatDate var="time" value="${now}" pattern="HH:mm" />
+					<p>${firstnow.get("time")}
+					<fmt:parseNumber var="parsedNumber" type="number" value="${fn:substring(firstnow.get('time'),0,2)}" />
+		
+		<c:set var="hour" value="${parsedNumber}"/>
+<c:if test="${hour >= 12}">
+ <c:out value="pm"/>
+</c:if>
+<c:if test="${hour < 12}">
+ <c:out value="am"/>
+ </c:if>
+					</p>
+					
+			</p>
+			</div>
+			<div class="container" style="display: flex;justify-content: space-evenly;flex-wrap: wrap; align-items:center;">
+			<div style="display:flex;flex-wrap: wrap;align-items:center;">
+			<div >
+			<img class="img-valign"  src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${weather1.get('icon')}.png" 
+			alt="Weather widget" >
+			</div>
+			<div >
+			<p class="text2">${firstnow.get("temperature")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:15px;" >realfeel:<small>${firstnow.get("feel_like")}</small></small>
+			</div>
+			</div>
+			<div style="font-size:13px">
+			Humidity:${json.get("main").getDouble("humidity")}%
+			<hr>
+			Wind Speed:${json.get("wind").getDouble("speed")}
+			<hr>
+			AQI:${air.get("data").get("aqi")}
+			
+ <c:if test="${!firstnow.has('aqi')}">
+
+</c:if>
+<c:if test="${firstnow.get('aqi')>=0&&firstnow.get('aqi')<=50}">
+Air Quality: Good
+</c:if>
+<c:if test="${firstnow.get('aqi')>51&&firstnow.get('aqi')<=100}">
+Air Quality:Moderate<br>
+
+</c:if>
+<c:if test="${firstnow.get('aqi')>101&&firstnow.get('aqi')<=150}">
+Unhealthy for Sensitive Groups<br>
+Members of sensitive groups may experience health effects. The general public is not likely to be affected.
+</c:if>
+<c:if test="${firstnow.get('aqi')>151&&firstnow.get('aqi')<=200}">
+Unhealthy<br>
+Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects
+</c:if>
+<c:if test="${firstnow.get('aqi')>201 && firstnow.get('aqi')<=300}">
+Very Unhealthy	<br>
+Health warnings of emergency conditions. The entire population is more likely to be affected.
+</c:if>
+
+<c:if test="${firstnow.get('aqi')>300}">
+Hazardous<br>
+Health alert: everyone may experience more serious health effects
+</c:if>
+
+ 
+			
+			</div>
+			</div>
+				<div  style="display:flex;justify-content: space-between;flex-wrap:wrap;align-items: center;">
+		<div style="margin-left:1%;">
+			${firstnow.get("main")}
+		</div>
+		<div style="margin-right:10%;padding:10px;">
+		<a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="btn btn-secondary" style="font-size:13px">
+More Details  &nbsp;<i class='fas fa-arrow-right'></i>
+</a>
+		</div>
+		</div>
+			</div>
+		
+		</div>
+		<br>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<div class="card" style="width:65%;margin: 0 auto;float: none;">
+<div class="card-body text">
+<div class="row">
+
+<div class="col-6">
+Current Air Quality<br>
+AQI:${firstnow.get("aqi")}
+<br>
+</div>
+
+<div class="col-6">
+Air Quality:${firstnow.get("air_quality")}<br>
+<a href="/airquality?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="btn btn-secondary">
+More Details  &nbsp;<i class='fas fa-arrow-right'></i>
+</a> 
+
+<div>
+
+</div>
+</div>
+</div>
+<br>
+
+</div>
+</div>
+<br>
+
+<div class="card" style="width:65%;margin: 0 auto;float: none;">
+		<div class="card-body">
+			<h4 class="card-title">
+				Today
+				<p style="float:right;font-size:15px">${todaydate}</p>
+			</h4>
+			
+			<div class="container">
+			<div style="width:20%;float:left">
+			<img class="img-valign"  src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${todayweather.get('icon')}.png" 
+			alt="Weather widget" >
+			</div>
+			<div style="float:left;width:40%">
+			<p class="text2">${todayfull.get("temp").getDouble("eve")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:20px;" >realfeel:<small>${todayfull.get("feels_like").getDouble("day")}</small></small>
+			</div>
+			<div style="float:left;width:30%">
+			<br><br>
+			<p>
+${todayweather.get("main") }
+</p>
+ 			
+
+			
+			</div>
+					<div style="float:right;width:10%">
+					<br><br>
+<a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}">
+<i class='fas fa-arrow-right'></i>
+</a>
+ 			
+
+			
+			</div>
+			</div>
+			</div>
+			
+
+		</div>
+		<br>
+		<div class="card" style="width:65%;margin: 0 auto;float: none;">
+		<div class="card-body">
+			<h4 class="card-title">
+				Tomorrow
+				<p style="float:right;font-size:15px">${tmwdate}</p>
+			</h4>
+			
+			<div class="container">
+			<div style="width:20%;float:left">
+			<img class="img-valign"  src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${tmwweather.get('icon')}.png" 
+			alt="Weather widget" >
+			</div>
+			<div style="float:left;width:40%">
+			<p class="text2">${tmwfull.get("temp").getDouble("morn")}
+			<c:if test="${units=='metric'}">
+			<sup>°</sup><b style="font-size:30px;">C</b>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			<sup>°</sup><b style="font-size:30px;">F</b>
+			</c:if>
+			<c:if test="${units==''}">
+			<sup></sup><b style="font-size:30px;">K</b>
+			</c:if>
+			</p>
+<small style="font-size:20px;" >realfeel:<small>${tmwfull.get("feels_like").getDouble("day")}</small></small>
+			</div>
+			<div style="float:left;width:30%">
+			
+			<p>
+			<br><br>
+${tmwweather.get("main")}
+</p>
+ 			
+
+			
+			</div>
+					<div style="float:right;width:10%">
+					<br><br>
+<a href="/tmwdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}"  >
+<i class='fas fa-arrow-right'></i>
+</a>
+ 			
+
+			
+			</div>
+			</div>
+			</div>
+			
+
+		</div>
+</div>
+<br>
+
+<div id="map" style="width: 50%;height:450px;margin: 0 auto;float: none;"></div>
+
+	<script>
+	var lat="<%=session.getAttribute("latitude") %>";
+	var lng="<%=session.getAttribute("longitude") %>"
+		initMapLog(lat,lng);
+		
+		/* if (!confirm("Please not that this page is only a demonstration for an OpenWeatherMap leaflet plugin.\nIt is not intended for productive use.\n\nVisit https://github.com/buche/leaflet-openweathermap for more information.\n\nClick OK to proceed with the map or click Cancel to visit Github.")) {
+			window.location.href = "https://github.com/buche/leaflet-openweathermap";
+		} */
+
+	</script>
+	 --%>
+
+
+</body>
+
+</html>
