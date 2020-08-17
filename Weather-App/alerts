@@ -1,0 +1,104 @@
+Wind Speed:
+knots       meters/second         miles/hour             Features
+(34 - 47)  (17.4911 - 24.1789)   (39.1265 - 54.0866)    Cyclonic storm
+(48 - 63)   (24.6933 - 32.41)    (55.2374- 72.4991)     Severe Cyclonic storm
+(64 - 119)  (32.9244 - 61.2189)  (73.6499-136.943)      very Severe Cyclonic storm
+(120 -above) (61.7333-above)      (138.094-above)       Super Cyclone
+
+Weather condtion alerts:
+1. Thunderstorm
+	thunderstorm with heavy rain
+	heavy thunderstorm
+	ragged thunderstorm
+	thunderstorm with heavy drizzle
+2. Drizzle
+	heavy intensity drizzle
+	heavy intensity drizzle rain
+	shower rain and drizzle
+	heavy shower rain and drizzle
+3. Rain
+	heavy intensity rain
+	very heavy rain
+	extreme rain
+	freezing rain
+	heavy intensity shower rain
+	ragged shower rain
+4. Snow
+	Heavy snow
+	Sleet
+	Light shower sleet
+	Shower sleet
+	Rain and snow
+	Heavy shower snow
+5. Atmosphere
+	volcanic ash
+	tornado
+	squalls
+
+Temperature Weather Alerts:
+Celcius       kelvin         farenheit    Alert
+(40 - 44)	(313-317)		(104-111)	  Hot
+(45 - 46)   (318-319)       (112-115)     Heat Wave
+(47 - 53)   (320-326)       (116-128)   Severe Heat Wave
+(54-above)  (327-above)  (129-above)     Extreme heat Wave
+(6-10)      (279-283)       (42-50)               Cold
+(4-5)       (277-278)       (39-41)             Cold Wave
+(3 or below)(276 or less)   (37 or less)        Severe Cold Wave
+
+Heat Index:
+Celcius      kelvin         farenheit       Alert
+
+
+Current Weather
+
+alerts with description
+JSON.parse(sessionStorage.getItem('currentnow')).current.weather[0].description in descriptionalerts
+
+Cyclone metric and standard
+ JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>=17 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=24
+ JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>24 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=32
+ JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>32 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=61
+ JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>61
+ 
+ Cyclone imperial
+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>=39 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=54
+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>54 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=72
+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>72 && JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed<=136
+JSON.parse(sessionStorage.getItem('currentnow')).current.wind_speed>136
+
+Temperature alert Hot
+Celcius
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=40 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=44);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>44 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=46);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>46 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=53);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>53);
+
+Farenheit
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=104 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=111);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>111 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=115);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>115 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=128);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>128);
+
+Kelvin
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=313 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=317);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>317 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=319);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>319 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=326);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>326);
+
+
+Temperature alert Cold
+Celcius
+  console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=6 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=10);
+  console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=4 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<6);
+  console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp<4);
+
+Farenheit
+    console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=42 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=50);
+    console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=39 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=41);
+    console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp<39);
+
+Kelvin
+
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=279 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=283);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp>=277 && JSON.parse(sessionStorage.getItem('currentnow')).current.temp<=278);
+console.log(JSON.parse(sessionStorage.getItem('currentnow')).current.temp<277);

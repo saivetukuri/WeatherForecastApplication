@@ -1,0 +1,135 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+       <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <%@ page import="org.json.*" %>
+   <%@ page import="org.json.*" %>
+   <%@page import="java.util.*" %>
+   <%@page import="java.util.concurrent.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.hourly {
+  
+  width: 100%;
+  
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  
+}
+
+</style>
+</head>
+<body style="background-color:#DCDCDC">
+<%@ include file="WeatherAfterLoginHead.jsp" %>
+<%@ include file="Alerts.jsp" %>
+<br>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+<%@ include file="pagination.jsp" %>
+<div class="container-fluid" style="width:40%;margin: 0 auto;float: none; background-color:#DCDCDC"> 
+<div class="card"  id="tmwafterhourly" style="background-color:#DCDCDC;" >
+</div>
+<br>
+<div> 
+ <a id="backtodaily" href="/weatherforecast?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" style="width:100%;background-color:#B0E0E6;">
+
+ Daily
+ </button></a>
+</div>
+</div>
+<%@ include file="tmwafterweatherhourlyretrieve.jsp" %>
+<%-- <%JSONArray hourly=(JSONArray)session.getAttribute("hourly");
+int i=(Integer)session.getAttribute("i");%>
+<div class="container-fluid">
+
+
+<div class="card" style="width:50%;margin: 0 auto;float: none;">
+<c:forEach var="i" begin="${i}" end="${hourly.length()-1}">
+<%String date=new java.text.SimpleDateFormat("dd-MMMM-yyyy").format(hourly.getJSONObject(i).getDouble("dt")*1000L).toString();%>
+<%String today=new java.text.SimpleDateFormat("dd-MMMM-yyyy").format(new java.util.Date()).toString();%>
+<c:set var="date" value="<%=date%>"/>
+<c:set var="today" value="<%=today%>"/>
+
+<button type="button" class="hourly" data-toggle="collapse" data-target="#demo${i}">
+ <div class="row">
+ <div class="col-3">
+
+<%String time=new java.text.SimpleDateFormat("HH:mm").format(hourly.getJSONObject(i).getDouble("dt")*1000L).toString();%>
+
+<fmt:formatDate type = "time" value = "${now}" />
+
+<c:set var="time" value="<%=time%>"/>
+
+
+
+${time}
+<fmt:parseNumber var="parsedNumber" type="number" value="${fn:substring(time,0,2)}" />
+		<c:set var="hour" value="${parsedNumber}"/>
+		
+<c:if test="${hour >= 12}">
+ <c:out value="pm"/>
+</c:if>
+<c:if test="${hour < 12}">
+ <c:out value="am"/>
+</c:if> <br>
+${date}<br>
+</div>
+<div class="col-2">
+<img src="http://openweathermap.org/img/wn/${hourly.get(i).get('weather').get(0).get('icon')}.png"><br>
+</div>
+<div class="col-2">
+${hourly.get(i).get("temp")}
+</div>
+<div class="col-2">
+Real feel:${hourly.get(i).get("feels_like")}
+</div>
+<div class="col-3">
+${hourly.get(i).get("weather").get(0).get("description") }
+</div>
+<!-- <div class="col-3">
+<i class="fas fa-angle-down rotate-icon"></i>
+</div> -->
+</div>
+</button>
+<div id="demo${i}" class="collapse">
+<div class="row">
+   <div class="col-6">
+  Wind:${hourly.get(i).get("wind_speed")}<br>
+  Humidity:${hourly.get(i).get("humidity")}%<br>
+  Indoor Humidity:${hourly.get(i).get("humidity")}%(Extremely Humid)<br>
+   </div>
+      <div class="col-6">
+  Dew Point:${hourly.get(i).get("dew_point")}<br>
+  Cloudiness:${hourly.get(i).get("clouds")}<br>
+  Pressure:${hourly.get(i).get("pressure")}<br>
+   </div>
+   </div>
+  </div>
+<c:set var="j" value="<%=i%>"/>
+
+
+<%i++; %>
+</c:forEach>
+<br>
+<div>
+ <a href="/weatherforecast?lat=${latitude}&lng=${longitude}&cityname=${cityname}"><button class="hourly" style="width:100%">
+Daily
+ </button></a>
+</div>
+
+</div>
+
+</div> --%>
+</body>
+</html>

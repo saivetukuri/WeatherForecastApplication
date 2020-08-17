@@ -1,0 +1,236 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body style="background-color:#DCDCDC">
+<%@ include file="WeatherAfterLoginHead.jsp" %>
+<%@ include file="Alerts.jsp" %>
+<br>
+<%@ include file="pagination.jsp" %>
+
+<c:if test="${units=='metric'}">
+			
+			<c:set var="tempunit" scope="session" value="°C"/>
+			</c:if>
+			<c:if test="${units=='imperial'}">
+			
+			<c:set var="tempunit" scope="session" value="°F"/>
+			</c:if>
+			<c:if test="${units==''}">
+			
+			<c:set var="tempunit" scope="session" value="K"/>
+			</c:if>
+
+<%-- <div class="conatiner">
+<div class="card">
+<c:forEach var="fore" items="${forecast}">
+<div class="card-deck mb-3">
+<div class="card mb-4 box shadow">
+<div class="card-body text-center">
+		Date:${fore.get("date")}<br>
+		Temperature:${fore.get("temperature")}<br>
+		Humidity:${fore.get("humidity")}<br>
+		Main:${fore.get("main")}<br>
+		<br><br>
+		</div>
+		</div>
+		</div>
+			
+		</c:forEach>
+		
+		<c:forEach var="i" begin="0" end="${forecastdata.size()-1}">
+		<div class="card-body">
+		<div class=date>
+		<p>
+		</div>
+    ${forecastday.get(i)} &nbsp; ${forecastdata.get(i).get("temp").getDouble("min")}/${forecastdata.get(i).get("temp").getDouble("max")} 
+    &nbsp;${weatherforecast.get(i).get("description")}&nbsp;precip:${forecastdata.get(i).get("rain")}<br>
+    ${forecastdate.get(i)}
+    </div>
+</c:forEach>
+	
+		
+		</div>
+		</div> --%>
+		<div class="container-fluid" id="forecastdata" >
+		
+		</div>
+	<%@ include file="forecast8daysretrieve.jsp" %>	
+ <%-- <div class="container-fluid">
+ <c:forEach var="i" begin="0" end="${forecastdata.size()-1}">
+ 
+ <div class="card" style="width:60%;margin: 0 auto;float: none;">
+ 
+    <div class="row">
+      <div class="col-2">${forecastday.get(i)}<br>
+      ${forecastdate.get(i)}</div>
+      <div class="col-2">
+      <img src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/${weatherforecast.get(i).get('icon')}.png" height=70% width=50%><br>
+      </div>
+      <div class="col-2">${forecastdata.get(i).get("temp").getDouble("max")}/${forecastdata.get(i).get("temp").getDouble("min")}</div>
+      <div class="col-2">${weatherforecast.get(i).get("description")}</div>
+      <div class="col-2">
+      <c:if test="${forecastdata.get(i).has('rain')}">
+  <div >preciprain:<br>${forecastdata.get(i).get("rain")}mm/day</div> 
+</c:if>
+<c:if test="${!forecastdata.get(i).has('rain')}">
+ <div >preciprain:<br>0mm/day</div> 
+</c:if>
+</div>
+<div class="col-2">
+ <c:if test="${forecastdata.get(i).has('snow')}">
+  <div>precipsnow:<br>${forecastdata.get(i).get("snow")}mm/day</div> 
+</c:if>
+<c:if test="${!forecastdata.get(i).has('snow')}">
+ <div>precipsnow:<br>0mm/day</div> 
+</c:if>
+</div>
+   <c:if test="${i==0}">
+    <a href="/currentdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="stretched-link"></a>
+    </c:if>
+     
+     <c:if test="${i==1}">
+    <a href="/tmwdetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}" class="stretched-link"></a>
+    </c:if>
+    <c:if test="${!(i==1||i==0)}">
+    <a href="/anydaydetails?lat=${latitude}&lng=${longitude}&cityname=${cityname}&i=${i}" class="stretched-link"></a>
+    </c:if>
+    </div>
+    </div>
+    <br>
+    </c:forEach> 
+  </div> --%>
+ <%-- 
+	<div id="openweathermap-widget-11" style="width:50%;margin: 0 auto;float: none;"></div>
+<script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'>
+</script>
+<script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '${sessionScope["city"].get("id")}',appid: '32a5443257de297a3b5b97d1ea462ed8',units: '${units}',containerid: 'openweathermap-widget-11',  });  
+(function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>			
+		${forecastdate.get(0)}
+	
+	
+	--%>
+	<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Forecast Weather"
+	},
+	axisX: {
+		valueFormatString: "DD MMMM YYYY"
+	},
+	axisY2: {
+		title: "Temperature",
+		suffix: "${tempunit}"
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor: "pointer",
+		verticalAlign: "top",
+		horizontalAlign: "center",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
+	data: [
+		{        
+			type:"line",
+			axisYType: "secondary",
+			name: "Temperature",
+			showInLegend: true,
+			markerSize: 0,
+			yValueFormatString: "###${tempunit}",
+      	
+		dataPoints: [
+			
+				
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[0].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.day },
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[1].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[2].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[2].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[3].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[3].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[4].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[4].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[5].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[5].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[6].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[6].temp.day},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[7].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[7].temp.day}
+		]
+	},
+	{        
+
+		type:"line",
+		axisYType: "secondary",
+		name: "Max",
+		showInLegend: true,
+		markerSize: 0,
+		yValueFormatString: "###${tempunit}",
+      	
+		dataPoints: [
+			
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[0].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[1].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[2].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[2].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[3].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[3].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[4].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[4].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[5].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[5].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[6].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[6].temp.max},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[7].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[7].temp.max}
+		]
+	},
+	{        
+
+		type:"line",
+		axisYType: "secondary",
+		name: "Min",
+		showInLegend: true,
+		markerSize: 0,
+		yValueFormatString: "###${tempunit}",
+      	
+		dataPoints: [
+			
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[0].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[0].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[1].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[1].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[2].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[2].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[3].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[3].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[4].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[4].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[5].dt*1000),y:JSON.parse(sessionStorage.getItem('forecast8days'))[5].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[6].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[6].temp.min},
+			{x:new Date(JSON.parse(sessionStorage.getItem('forecast8days'))[7].dt*1000), y:JSON.parse(sessionStorage.getItem('forecast8days'))[7].temp.min}
+		]
+	}
+	]
+});
+chart.render();
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+
+}
+</script>
+
+	<br>
+	<div id="chartContainer" style="height: 370px; width: 65%;margin: 0 auto;float: none;"></div>
+	
+	
+
+</body>
+</html>
